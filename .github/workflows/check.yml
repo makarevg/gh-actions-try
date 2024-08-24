@@ -1,0 +1,48 @@
+name: Check
+on:
+  push:
+    branches-ignore:
+      - main
+jobs:
+  ESLint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          check-latest: false
+      - name: Install deps
+        run: npm ci
+      - name: Linting
+        run: npm lint:eslint
+  EditorConfig:
+    name: EditorConfig
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          check-latest: false
+      - name: Install deps
+        run: npm ci
+      - name: EditorConfig
+        run: npm lint:editorconfig
+  TypeScript:
+    name: TypeScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          check-latest: false
+      - name: Install deps
+        run: npm ci
+      - name: Type checking
+        run: npm run types:check
