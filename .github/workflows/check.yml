@@ -46,3 +46,18 @@ jobs:
         run: npm ci
       - name: Type checking
         run: npm run types:check
+  Build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [TypeScript]
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          check-latest: false
+      - name: Install deps
+        run: npm ci
+      - name: Building
+        run: npm run build
