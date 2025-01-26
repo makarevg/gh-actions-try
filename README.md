@@ -1,2 +1,2 @@
-# Sign-In Example
+# First step in Gh Actions Example
 
