@@ -5,7 +5,7 @@ import postcssNested from 'postcss-nested'
 
 export default defineConfig({
     plugins: [react()],
-    base: '/sign-in-example',
+    base: '/gh-actions-try',
     css: {
         postcss:{
             plugins: [
